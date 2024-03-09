@@ -75,7 +75,13 @@ func main() {
 		setWeatherStation(tempWeatherStation, &myWeatherStations)
 		linesProcessed++
 		if linesProcessed%100000 == 0 {
-			fmt.Printf("Progress: %0.2f%%\n", float64(linesProcessed)/float64(1_000_000_000)*100)
+			elapsed := time.Since(start)
+
+			microSeconds := elapsed.Microseconds()
+			seconds := float64(microSeconds) / 1_000_000
+			minutes := seconds / 60
+			progress := float64(linesProcessed) / float64(1_000_000_000)
+			fmt.Printf("Progress: %0.2f%% - %s since start - estimated: %0.1f minutes\n", progress*100, elapsed, minutes/progress)
 		}
 	}
 
