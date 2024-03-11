@@ -4,3 +4,8 @@
 1. `python make-data.py 1_000_000_000`
 2. `go build`
 3. run the binary. e.g. on Windows: `./one-billion-row-challenge.exe`
+
+## Different Builds
+
+- `main.go.01.stop` - implementation with my "hashmap"
+- `main.go.02.stop` - implementation with Go's map
